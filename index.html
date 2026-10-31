@@ -125,8 +125,41 @@ textarea.ff{min-height:120px;resize:vertical;}
 .fl2{display:flex;gap:24px;}
 .fl2 a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
 .fl2 a:hover{color:var(--text);}
-@media(max-width:900px){.sg{grid-template-columns:repeat(2,1fr)}.pi{grid-template-columns:repeat(3,1fr)}.tg{grid-template-columns:1fr}.pg{grid-template-columns:1fr}.cg{grid-template-columns:1fr}}
-@media(max-width:680px){.sg{grid-template-columns:1fr}.pi{grid-template-columns:repeat(2,1fr)}.nl nav a:not(.nb){display:none}.hst{display:none}.wc{flex:0 0 85vw}.ci{flex-direction:column}.mf{flex-direction:column;gap:16px;text-align:center}}
+@media(max-width:900px){
+  .sg{grid-template-columns:repeat(2,1fr);}
+  .pi{grid-template-columns:repeat(3,1fr);}
+  .tg{grid-template-columns:1fr;}
+  .pg{grid-template-columns:1fr;}
+  .cg{grid-template-columns:1fr;}
+}
+@media(max-width:680px){
+  .sg{grid-template-columns:1fr;}
+  .pi{grid-template-columns:repeat(2,1fr);}
+  .hst{display:none;}
+  .wc{flex:0 0 85vw;}
+  .ci{flex-direction:column;padding:60px max(24px,env(safe-area-inset-left,0px));}
+  .mf{flex-direction:column;gap:16px;text-align:center;}
+  .sec{padding:64px max(24px,env(safe-area-inset-left,0px));}
+  .si{padding:28px 20px;}
+  .tc{padding:28px 24px;}
+  .pc{padding:32px 24px;}
+  .hc{padding-top:max(120px,18vh);padding-bottom:64px;}
+  h1.hh{letter-spacing:-1.5px;margin-bottom:24px;}
+  .hs{font-size:15px;margin-bottom:36px;}
+  .ha{gap:10px;}
+  .btn{padding:12px 22px;font-size:13px;}
+  .nl nav a:not(.nb){display:none;}
+  .nb{display:none;}
+  /* !important: the menu elements carry inline display/transform that would otherwise win */
+  #mb-btn{display:flex!important;}
+  #mb-menu{display:flex!important;}
+  #mb-menu.open{transform:translateX(0)!important;}
+}
+@media(max-width:480px){
+  .pi{grid-template-columns:1fr;}
+  .pp{border-right:none;border-bottom:1px solid var(--border);}
+  .pp:last-child{border-bottom:none;}
+}
 </style>
 </helmet>
 
@@ -143,8 +176,16 @@ textarea.ff{min-height:120px;resize:vertical;}
       <a href="#pricing">Pricing</a>
       <a href="https://wa.me/918850930003" target="_blank" rel="noopener" class="nb">Start a Project</a>
     </nav>
+    <button id="mb-btn" aria-label="Open menu" style="display:none;background:none;border:1px solid rgba(200,200,200,.2);color:#f0f0f0;width:40px;height:40px;border-radius:3px;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">&#9776;</button>
   </div>
 </header>
+<div id="mb-menu" style="display:none;position:fixed;inset:0;background:rgba(3,3,3,.97);z-index:510;flex-direction:column;align-items:center;justify-content:center;gap:40px;transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);">
+  <button id="mb-close" aria-label="Close menu" style="position:absolute;top:24px;right:24px;background:none;border:none;color:#f0f0f0;font-size:28px;cursor:pointer;">&#215;</button>
+  <a href="#work" class="mb-link" style="font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#f0f0f0;text-decoration:none;">Work</a>
+  <a href="#services" class="mb-link" style="font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#f0f0f0;text-decoration:none;">Services</a>
+  <a href="#pricing" class="mb-link" style="font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#f0f0f0;text-decoration:none;">Pricing</a>
+  <a href="https://wa.me/918850930003" target="_blank" rel="noopener" style="margin-top:8px;padding:14px 28px;background:#d0d0d0;color:#050505;border-radius:3px;font-weight:600;text-decoration:none;">Start a Project</a>
+</div>
 
 <section class="hero">
   <canvas id="gl"></canvas>
@@ -171,7 +212,7 @@ textarea.ff{min-height:120px;resize:vertical;}
   </div>
 </div>
 
-<section id="work" style="padding:120px 0 80px;">
+<section id="work" style="padding:clamp(64px,10vw,120px) 0 80px;">
   <div style="max-width:none;margin:0 auto;">
     <div class="sec" style="padding-bottom:0;padding-top:0;margin-bottom:56px;">
       <p class="sk fr">Selected Work</p>
@@ -307,6 +348,7 @@ class Component extends DCLogic {
     this._reveal();
     this._drag();
     this._form();
+    this._menu();
     setTimeout(() => {
       document.querySelectorAll('.hl,.hh,.hs,.ha,.hst').forEach(e => e.classList.add('in'));
     }, 100);
@@ -436,6 +478,19 @@ void main(){
       b.textContent='Sent ✓'; b.style.background='#333'; b.style.color='#888';
       setTimeout(() => { b.textContent='Send Enquiry →'; b.style.background=''; b.style.color=''; f.reset(); }, 3000);
     });
+  }
+
+  _menu() {
+    const btn = document.getElementById('mb-btn');
+    const menu = document.getElementById('mb-menu');
+    const close = document.getElementById('mb-close');
+    if (btn && menu) {
+      const open = () => { menu.classList.add('open'); document.body.style.overflow = 'hidden'; };
+      const shut = () => { menu.classList.remove('open'); document.body.style.overflow = ''; };
+      btn.addEventListener('click', open);
+      if (close) close.addEventListener('click', shut);
+      menu.querySelectorAll('.mb-link').forEach(a => a.addEventListener('click', shut));
+    }
   }
 
   renderVals() { return {}; }
