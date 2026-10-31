@@ -110,12 +110,15 @@ h2.sh.long{font-size:clamp(24px,6.6vw,76px);}
 .ptg{display:inline-block;font-size:11px;letter-spacing:2px;font-weight:700;text-transform:uppercase;color:#a0a0a0;background:#151517;padding:7px 14px;border-radius:999px;margin-bottom:28px;}
 .ptg.b{background:var(--gold);color:#0a0a0a;}
 .pn2{font-family:'Syne',sans-serif;font-size:32px;font-weight:700;letter-spacing:-.5px;margin-bottom:8px;}
-.pd2{color:var(--muted);font-size:15px;margin-bottom:36px;}
+.pd2{color:var(--muted);font-size:15px;margin-bottom:36px;min-height:3.2em;}
 .pa{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;letter-spacing:-2px;line-height:1.1;margin-bottom:8px;}
 .pc2{font-size:13px;color:var(--muted);margin-bottom:36px;}
 .fl{list-style:none;margin-bottom:40px;}
 .fl li{padding:9px 0;font-size:15px;display:flex;align-items:center;gap:14px;}
 .fl li::before{content:'✓';color:var(--text);font-size:14px;flex-shrink:0;width:18px;}
+.fl li.no{color:#6b6b70;text-decoration:line-through;text-decoration-color:rgba(255,255,255,.22);}
+.fl li.no::before{content:'✕';color:#a85a5a;text-decoration:none;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
 .pcta{width:100%;}
 .cg{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start;}
 .ci2 p{color:var(--muted);font-size:17px;line-height:1.7;margin-bottom:36px;max-width:460px;}
@@ -156,6 +159,7 @@ footer{position:relative;overflow:hidden;}
   .ci{padding:56px 40px;}
   .tg{grid-template-columns:1fr;}
   .pg{grid-template-columns:1fr;}
+  .pd2{min-height:0;}
   .cg{grid-template-columns:1fr;}
 }
 @media(max-width:680px){
@@ -321,27 +325,27 @@ footer{position:relative;overflow:hidden;}
       <div class="pc fr">
         <div class="ptg">Static Website</div>
         <div class="pn2">Static</div>
-        <p class="pd2">Clean, credible presence — fast.</p>
+        <p class="pd2">Suits businesses whose content rarely changes.</p>
         <div class="pa">INR x</div>
         <div class="pc2">one-time · no subscriptions</div>
         <ul class="fl">
-          <li>Custom design, up to 6 pages</li><li>Fully mobile responsive</li><li>SSL + basic on-page SEO</li><li>WhatsApp, Call &amp; Maps integration</li><li>Content changes on request</li><li>~3 weeks after content received</li>
+          <li>Up to 6 pages</li><li>Custom design, mobile-first, SSL &amp; basic SEO</li><li>WhatsApp, Call &amp; Maps integration</li><li class="no"><span class="sr">Not included: </span>Enquiry form + email alerts</li><li class="no"><span class="sr">Not included: </span>Admin panel — edit text &amp; images</li><li class="no"><span class="sr">Not included: </span>Blog / updates section</li><li class="no"><span class="sr">Not included: </span>Add testimonials yourself</li><li>Content changes by us on request</li><li>~3 weeks after content received</li>
         </ul>
         <a href="https://wa.me/918850930003?text=I'm%20interested%20in%20the%20Static%20Website%20package" target="_blank" rel="noopener" class="btn bg pcta">Choose Static <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="pc ft fr d1">
         <div class="ptg b">Most Popular</div>
         <div class="pn2">Dynamic</div>
-        <p class="pd2">Full control to update and grow your site.</p>
+        <p class="pd2">Suits those who want to publish updates, stories, or capture enquiries directly.</p>
         <div class="pa">INR y</div>
         <div class="pc2">one-time · no subscriptions</div>
         <ul class="fl">
-          <li>Everything in Static, plus:</li><li>Enquiry form with email alerts</li><li>Admin panel — edit text &amp; images</li><li>Blog / updates section</li><li>Add testimonials yourself</li><li>~4 weeks after content received</li>
+          <li>Up to 6 pages</li><li>Custom design, mobile-first, SSL &amp; basic SEO</li><li>WhatsApp, Call &amp; Maps integration</li><li>Enquiry form + email alerts</li><li>Admin panel — edit text &amp; images</li><li>Blog / updates section</li><li>Add testimonials yourself</li><li>Content changes by you anytime</li><li>~4 weeks after content received</li>
         </ul>
         <a href="https://wa.me/918850930003?text=I'm%20interested%20in%20the%20Dynamic%20Website%20package" target="_blank" rel="noopener" class="btn bp pcta">Choose Dynamic <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-    <p style="margin:36px auto 0;max-width:760px;text-align:center;font-size:14px;color:var(--muted);line-height:1.7;">50% advance to start. 50% before go-live. Two revision rounds included. 30-day bug-fix support. Domain &amp; hosting ~INR 3,000–5,500/year, registered in your name.</p>
+    <p style="margin:36px auto 0;max-width:760px;text-align:center;font-size:14px;color:var(--muted);line-height:1.7;">50% advance to start. 50% before go-live. Two revision rounds included. 30-day bug-fix support. Domain &amp; hosting ~INR 3,000–5,500/year, registered in your name. You own the site, content and domain/hosting logins on final payment.</p>
   </div>
 </section>
 
