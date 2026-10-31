@@ -7,10 +7,7 @@
 :root{--bg:#080808;--surface:#0b0b0c;--s2:#111;--text:#f5f5f5;--muted:#8a8a8a;--silver:#c8c8c8;--accent:#e4e4e7;--gold:#C9A961;--border:rgba(255,255,255,.08);--b2:rgba(255,255,255,.16);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Manrope','Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;cursor:none;}
-#ms-dot{position:fixed;width:5px;height:5px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity .2s;}
-#ms-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(255,255,255,.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s;}
-body.cx #ms-ring{width:56px;height:56px;border-color:rgba(200,200,200,.55);}
+body{background:var(--bg);color:var(--text);font-family:'Manrope','Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;}
 .grain{position:fixed;inset:0;z-index:600;pointer-events:none;opacity:.038;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px 300px;}
 #ms-nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .4s,border-color .4s;}
 #ms-nav.sc{background:rgba(8,8,8,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
@@ -139,7 +136,7 @@ h2.sh.long{font-size:clamp(24px,6.6vw,76px);}
 select.ff{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23f5f5f5' stroke-width='1.6'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;padding-right:44px;}
 select.ff option{background:#111;}
 textarea.ff{min-height:140px;resize:vertical;}
-.fsub{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#0a0a0a;border:none;padding:19px 28px;border-radius:999px;font-family:inherit;font-size:15px;font-weight:500;cursor:none;transition:background .2s;}
+.fsub{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#0a0a0a;border:none;padding:19px 28px;border-radius:999px;font-family:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:background .2s;}
 .fsub:hover{background:#fff;}
 .fh{text-align:center;font-size:12px;color:var(--muted);}
 footer{position:relative;overflow:hidden;}
@@ -150,7 +147,6 @@ footer{position:relative;overflow:hidden;}
 .fl2{display:flex;gap:28px;flex-wrap:wrap;}
 .fl2 a{font-size:15px;color:var(--muted);text-decoration:none;transition:color .2s;}
 .fl2 a:hover{color:var(--text);}
-@media(hover:none){#ms-dot,#ms-ring{display:none;}body{cursor:auto;}.fsub{cursor:pointer;}}
 @media(max-width:900px){
   .sg{grid-template-columns:repeat(2,1fr);}
   .pi{grid-template-columns:1fr;gap:40px;}
@@ -199,8 +195,6 @@ footer{position:relative;overflow:hidden;}
 </style>
 </helmet>
 
-<div id="ms-dot"></div>
-<div id="ms-ring"></div>
 <div class="grain" aria-hidden="true"></div>
 
 <header id="ms-nav">
@@ -390,7 +384,6 @@ footer{position:relative;overflow:hidden;}
 <script type="text/x-dc" data-dc-script="">
 class Component extends DCLogic {
   componentDidMount() {
-    this._cursor();
     this._nav();
     this._webgl();
     this._reveal();
@@ -400,26 +393,6 @@ class Component extends DCLogic {
     setTimeout(() => {
       document.querySelectorAll('.hl,.hh,.hs,.ha,.hst').forEach(e => e.classList.add('in'));
     }, 100);
-  }
-
-  _cursor() {
-    const dot = document.getElementById('ms-dot');
-    const ring = document.getElementById('ms-ring');
-    if (!dot || !ring) return;
-    let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    const loop = () => {
-      dot.style.left = mx+'px'; dot.style.top = my+'px';
-      rx += (mx-rx)*.12; ry += (my-ry)*.12;
-      ring.style.left = rx+'px'; ring.style.top = ry+'px';
-      requestAnimationFrame(loop);
-    };
-    loop();
-    document.addEventListener('mouseover', e => {
-      document.body.classList.toggle('cx', !!e.target.closest('a,button,.wc,.si'));
-    });
-    document.addEventListener('mouseleave', () => { dot.style.opacity='0'; ring.style.opacity='0'; });
-    document.addEventListener('mouseenter', () => { dot.style.opacity='1'; ring.style.opacity='1'; });
   }
 
   _nav() {
