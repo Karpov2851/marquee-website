@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marquee Social | Websites that Perform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #050505;
+  --surface: #0f0f0f;
+  --text: #f5f5f5;
+  --muted: #a0a0a0;
+  --accent: #c0c0c0;
+  --silver: #e8e8e8;
+  --border: #1a1a1a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system_ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+header {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(5,5,5,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 80px;
+}
+.logo {
+  height: 52px; width: auto;
+  filter: brightness(1.1);
+}
+nav a {
+  color: var(--text); text-decoration: none;
+  margin-left: 32px; font-size: 14px; font-weight: 500;
+  letter-spacing: 0.5px; transition: color 0.2s;
+}
+nav a:hover { color: var(--accent); }
+.cta-btn {
+  background: transparent; border: 1px solid var(--accent);
+  color: var(--text); padding: 10px 20px; border-radius: 4px;
+  text-decoration: none; font-size: 14px; font-weight: 500;
+  transition: all 0.2s;
+}
+.cta-btn:hover { background: var(--accent); color: #000; }
+
+/* Hero */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding-top: 80px;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 800; line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+.hero p {
+  font-size: 18px; color: var(--muted); max-width: 540px;
+  margin-bottom: 40px;
+}
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Sections */
+section { padding: 100px 0; }
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700; margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+.sub { color: var(--muted); margin-bottom: 60px; max-width: 560px; }
+
+/* Work Grid */
+.work-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+.work-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.work-card:hover { transform: translateY(-6px); border-color: #333; }
+.work-card .thumb {
+  height: 200px; background: linear-gradient(135deg, #111, #1a1a1a);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--muted); letter-spacing: 1px;
+}
+.work-card .info { padding: 24px; }
+.work-card h3 { font-size: 18px; margin-bottom: 6px; }
+.work-card p { color: var(--muted); font-size: 14px; }
+
+/* Testimonials */
+.testimonials {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+.testimonial {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 32px; border-radius: 12px;
+}
+.testimonial p { font-size: 16px; margin-bottom: 20px; }
+.author { font-weight: 600; }
+.author span { display: block; font-weight: 400; color: var(--muted); font-size: 14px; }
+
+/* Pricing */
+.pricing {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px; margin-top: 40px;
+}
+.price-card {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 40px 32px; border-radius: 12px;
+}
+.price-card h3 { font-size: 22px; margin-bottom: 8px; }
+.price { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 700; margin: 16px 0; }
+.price span { font-size: 16px; font-weight: 400; color: var(--muted); }
+.features { list-style: none; margin: 24px 0; }
+.features li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 15px; }
+.features li:last-child { border: none; }
+
+/* Contact */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+}
+.contact-info a {
+  color: var(--accent); text-decoration: none;
+  display: block; margin: 12px 0; font-size: 18px;
+}
+.contact-info a:hover { text-decoration: underline; }
+form { display: flex; flex-direction: column; gap: 16px; }
+input, textarea, select {
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); padding: 14px 16px; border-radius: 6px;
+  font-family: inherit; font-size: 15px;
+}
+textarea { min-height: 120px; resize: vertical; }
+button[type="submit"] {
+  background: var(--accent); color: #000; border: none;
+  padding: 16px; border-radius: 6px; font-weight: 600;
+  cursor: pointer; transition: opacity 0.2s;
+}
+button[type="submit"]:hover { opacity: 0.9; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 0; text-align: center; color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  nav a { margin-left: 16px; font-size: 13px; }
+  .hero h1 { letter-spacing: -1px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <img src="logo.png" alt="Marquee Social" class="logo">
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+      <a href="https://wa.me/918850930003" class="cta-btn" target="_blank">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HOME / HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Websites that<br>perform.</h1>
+    <p>We design and build fast, high-converting websites for ambitious service businesses. Precision over noise. Results over decoration.</p>
+    <div class="hero-actions">
+      <a href="#pricing" class="cta-btn">View Packages</a>
+      <a href="https://wa.me/918850930003" class="cta-btn" target="_blank">Start a Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="container">
+    <h2>Selected Work</h2>
+    <p class="sub">Real sites for real businesses. Click through to see them live.</p>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="thumb">SWASYA SOLUTIONS</div>
+        <div class="info">
+          <h3>SWASYA Solutions</h3>
+          <p>Consulting & safety culture transformation. Clean, credible presence.</p>
+          <a href="https://swasyasolutions.com" target="_blank" style="color:var(--accent); font-size:14px;">Visit site →</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="thumb">HOMEPICK</div>
+        <div class="info">
+          <h3>Homepick</h3>
+          <p>Artisanal pickles & syrups. Authentic product storytelling.</p>
+          <a href="https://homepick.co.in" target="_blank" style="color:var(--accent); font-size:14px;">Visit site →</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="thumb">ICARE INSURANCE</div>
+        <div class="info">
+          <h3>iCare Insurance</h3>
+          <p>Premium general insurance. Clear, trust-building experience.</p>
+          <a href="https://icareinsurance.online" target="_blank" style="color:var(--accent); font-size:14px;">Visit site →</a>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="thumb">ANVION HEALTHCARE</div>
+        <div class="info">
+          <h3>Anvion Healthcare</h3>
+          <p>Pharmaceutical & healthcare distribution.</p>
+          <a href="https://www.anvionhealthcare.com" target="_blank" style="color:var(--accent); font-size:14px;">Visit site →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background: var(--surface);">
+  <div class="container">
+    <h2>What Clients Say</h2>
+    <div class="testimonials" style="margin-top:40px;">
+      <div class="testimonial">
+        <p>“Marquee delivered a clean, professional site that immediately strengthened our credibility. The process was straightforward and the final result supports how we present our safety culture work to clients.”</p>
+        <div class="author">Ranga Shingte<span>Founder | Chairman, SWASYA Solutions</span></div>
+      </div>
+      <div class="testimonial">
+        <p>“They understood the artisanal nature of what we do and translated it into a website that feels authentic. Enquiries became easier and the site looks as good as our products.”</p>
+        <div class="author">Chintan<span>Founder, Homepick</span></div>
+      </div>
+      <div class="testimonial">
+        <p>“Clear, fast, and focused on what our clients need. The site makes it simple for businesses to understand our services and get in touch — exactly what we asked for.”</p>
+        <div class="author">Founder<span>iCare Insurance</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <h2>Packages</h2>
+    <p class="sub">One-time development fee. Domain & hosting billed separately at actuals.</p>
+    <div class="pricing">
+      <div class="price-card">
+        <h3>Static Website</h3>
+        <div class="price">INR x <span>one-time</span></div>
+        <ul class="features">
+          <li>Custom design, up to 6 pages</li>
+          <li>Fully mobile responsive</li>
+          <li>SSL, basic on-page SEO</li>
+          <li>WhatsApp, call & Maps integration</li>
+          <li>Content changes by us on request</li>
+          <li>~3 weeks after content</li>
+        </ul>
+        <a href="https://wa.me/918850930003?text=I'm%20interested%20in%20the%20Static%20Website%20package" class="cta-btn" style="display:inline-block; margin-top:16px;" target="_blank">Choose Static</a>
+      </div>
+      <div class="price-card" style="border-color: var(--accent);">
+        <h3>Dynamic Website</h3>
+        <div class="price">INR y <span>one-time</span></div>
+        <ul class="features">
+          <li>Everything in Static, plus:</li>
+          <li>Enquiry form with email alerts</li>
+          <li>Admin panel (edit text & images)</li>
+          <li>Blog / updates section</li>
+          <li>Add testimonials yourself</li>
+          <li>~4 weeks after content</li>
+        </ul>
+        <a href="https://wa.me/918850930003?text=I'm%20interested%20in%20the%20Dynamic%20Website%20package" class="cta-btn" style="display:inline-block; margin-top:16px; background:var(--accent); color:#000;" target="_blank">Choose Dynamic</a>
+      </div>
+    </div>
+    <p style="margin-top:40px; color:var(--muted); font-size:14px;">50% advance to start. 50% before go-live. Two revision rounds included. 30-day bug-fix support. Domain & hosting ~INR 3,000–5,500/year, registered in your name.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: var(--surface);">
+  <div class="container">
+    <h2>Start a Project</h2>
+    <div class="contact-grid" style="margin-top:40px;">
+      <div class="contact-info">
+        <p style="margin-bottom:24px; color:var(--muted);">Reply to this proposal or reach us directly. We start within two working days of the advance.</p>
+        <a href="https://wa.me/918850930003" target="_blank">WhatsApp: 8850930003</a>
+        <a href="tel:+918850930003">Call: 8850930003</a>
+        <a href="mailto:marqueesocial22@gmail.com">marqueesocial22@gmail.com</a>
+        <p style="margin-top:32px; font-size:14px; color:var(--muted);">Prepared by Suryanarayan Pal<br>Marquee Social Marketing Services<br>Mumbai</p>
+      </div>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <select>
+          <option>Preferred Package</option>
+          <option>Static Website</option>
+          <option>Dynamic Website</option>
+          <option>Not sure yet</option>
+        </select>
+        <textarea placeholder="Tell us about your business and what you need"></textarea>
+        <button type="submit">Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Marquee Social Marketing Services. All rights reserved.
+  </div>
+</footer>
+
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you. We will contact you shortly, or message us directly on WhatsApp for faster response.');
+  this.reset();
+});
+</script>
+
+</body>
+</html>
