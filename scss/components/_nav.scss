@@ -1,0 +1,105 @@
+@use "../abstracts" as *;
+
+// Fixed header and navigation
+
+#ms-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    transition:
+        background 0.4s,
+        border-color 0.4s;
+}
+
+#ms-nav.sc {
+    background: rgba(8, 8, 8, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+}
+
+.ni {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0 $gutter;
+    height: 84px;
+}
+
+.lg {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.lg img {
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    display: block;
+}
+
+.lg span {
+    font-family: "Syne", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.nl nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nl nav a {
+    color: #a8a8a8;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nl nav a:hover {
+    color: var(--text);
+}
+
+.nb {
+    background: var(--accent) !important;
+    color: #0a0a0a !important;
+    padding: 11px 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s !important;
+}
+
+.nb:hover {
+    background: #fff !important;
+}
+
+@include bp-sm {
+    .ni {
+        height: 76px;
+    }
+
+    .lg span {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .nl nav a:not(.nb) {
+        display: none;
+    }
+
+    .nb {
+        display: none;
+    }
+}

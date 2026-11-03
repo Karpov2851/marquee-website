@@ -1,0 +1,32 @@
+@use "../abstracts" as *;
+
+// Scroll-reveal helpers (.in is added by IntersectionObserver)
+
+.fr {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+}
+
+.fr.in {
+    opacity: 1;
+    transform: none;
+}
+
+.d1 {
+    transition-delay: 0.1s;
+}
+
+.d2 {
+    transition-delay: 0.2s;
+}
+
+.d3 {
+    transition-delay: 0.3s;
+}
+
+.d4 {
+    transition-delay: 0.4s;
+}

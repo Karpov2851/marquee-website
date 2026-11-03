@@ -1,0 +1,107 @@
+@use "../abstracts" as *;
+
+// Selected work cards
+
+.wh {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.wh .ss {
+    max-width: 360px;
+    padding-bottom: 10px;
+}
+
+.wout {
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+
+.wt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px 72px;
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0 $gutter;
+}
+
+.wmg {
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+}
+
+.wth {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wc:hover .wth {
+    transform: scale(1.05);
+}
+
+.wi {
+    padding: 26px 0 0;
+}
+
+.wtg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.wnum {
+    font-family: "Syne", sans-serif;
+    color: var(--muted);
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.wi h3 {
+    font-family: "Syne", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+}
+
+.wi p {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 14px;
+    max-width: 460px;
+}
+
+.wl {
+    font-size: 13px;
+    color: var(--silver);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.wl:hover {
+    color: #fff;
+}
+
+@include bp-sm {
+    .wt {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+}

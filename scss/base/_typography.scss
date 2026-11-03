@@ -1,0 +1,56 @@
+@use "../abstracts" as *;
+
+// Section eyebrows, headings and lead text
+
+.ws2 {
+    color: #8c8c90;
+}
+
+.sk {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+}
+
+.sk::before {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+.sk.c {
+    justify-content: center;
+}
+
+.sk.c::before {
+    display: none;
+}
+
+h2.sh {
+    font-family: "Syne", sans-serif;
+    font-size: clamp(38px, 5.5vw, 76px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    text-wrap: balance;
+}
+
+.ss {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 480px;
+    line-height: 1.65;
+}
+
+h2.sh.long {
+    font-size: clamp(24px, 6.6vw, 76px);
+}

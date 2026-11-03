@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+// Mobile menu (inline styles on the elements need !important to be overridden)
+
+
+@include bp-sm {
+    /* !important: the menu elements carry inline display/transform that would otherwise win */
+    #mb-btn {
+        display: flex !important;
+    }
+
+    #mb-menu {
+        display: flex !important;
+    }
+
+    #mb-menu.open {
+        transform: translateX(0) !important;
+    }
+}

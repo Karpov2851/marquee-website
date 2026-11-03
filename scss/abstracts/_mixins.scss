@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+@mixin bp-md {
+    @media (max-width: $bp-md) {
+        @content;
+    }
+}
+
+@mixin bp-sm {
+    @media (max-width: $bp-sm) {
+        @content;
+    }
+}

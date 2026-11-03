@@ -1,0 +1,21 @@
+{
+  "name": "marquee-website",
+  "version": "1.0.0",
+  "description": "Marquee Social website",
+  "scripts": {
+    "build": "sass scss/main.scss css/main.css --style=compressed --no-source-map",
+    "dev": "sass scss/main.scss css/main.css --watch --style=expanded"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karpov2851/marquee-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Karpov2851/marquee-website/issues"
+  },
+  "homepage": "https://github.com/Karpov2851/marquee-website#readme",
+  "devDependencies": {
+    "sass": "^1.107.1"
+  },
+  "private": true
+}

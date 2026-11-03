@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+
+// Page container
+
+.sec {
+    padding: 120px $gutter;
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+@include bp-sm {
+    .sec {
+        padding: 64px
+            $gutter;
+    }
+}

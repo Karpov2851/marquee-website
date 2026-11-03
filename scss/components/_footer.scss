@@ -1,0 +1,81 @@
+@use "../abstracts" as *;
+
+// Footer
+
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.wm {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 90px $gutter
+        40px;
+    font-family: "Syne", sans-serif;
+    font-weight: 800;
+    font-size: clamp(56px, 10vw, 150px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.035);
+    user-select: none;
+    pointer-events: none;
+}
+
+.mf {
+    border-top: 1px solid var(--border);
+    padding: 32px $gutter;
+    max-width: 1340px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.mf .cp {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.mf .cp img {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+}
+
+.fl2 {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.fl2 a {
+    font-size: 15px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.fl2 a:hover {
+    color: var(--text);
+}
+
+@include bp-sm {
+    .wm {
+        padding-top: 56px;
+    }
+
+    .mf {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .fl2 {
+        justify-content: center;
+    }
+}

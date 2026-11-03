@@ -1,0 +1,23 @@
+@use "../abstracts" as *;
+
+// Reset and document defaults
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Manrope", "Inter", system-ui, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}

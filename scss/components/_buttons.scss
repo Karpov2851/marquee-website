@@ -1,0 +1,49 @@
+@use "../abstracts" as *;
+
+// Buttons
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 32px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.22s;
+}
+
+.btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.bp {
+    background: var(--accent);
+    color: #0a0a0a;
+    border: 1px solid var(--accent);
+}
+
+.bp:hover {
+    background: #fff;
+}
+
+.bg {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.bg:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+@include bp-sm {
+    .btn {
+        padding: 12px 22px;
+        font-size: 13px;
+    }
+}

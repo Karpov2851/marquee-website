@@ -1,0 +1,8 @@
+@use "sass:string";
+
+// Breakpoints (max-width, desktop-first like the original stylesheet)
+$bp-md: 900px;
+$bp-sm: 680px;
+
+// Horizontal page gutter, respects iOS safe areas
+$gutter: string.unquote("max(24px, env(safe-area-inset-left, 0px))");

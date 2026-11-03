@@ -1,0 +1,48 @@
+@use "../abstracts" as *;
+
+// Scrolling ticker strip
+
+.ticker {
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 38px 0;
+    background: var(--bg);
+}
+
+.tt {
+    display: flex;
+    gap: 56px;
+    width: max-content;
+    animation: tk 32s linear infinite;
+    align-items: center;
+}
+
+.tt span {
+    white-space: nowrap;
+    font-family: "Syne", sans-serif;
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #e8e8e8;
+}
+
+.tt span.m {
+    color: #6f6f73;
+}
+
+.tt span.gd {
+    color: var(--gold);
+    font-size: 22px;
+    letter-spacing: 0;
+}
+
+@keyframes tk {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}

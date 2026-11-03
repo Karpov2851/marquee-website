@@ -1,0 +1,94 @@
+@use "../abstracts" as *;
+
+// Process timeline
+
+.pi {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    margin-top: 64px;
+}
+
+.pi::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 9px;
+    height: 1px;
+    background: var(--border);
+}
+
+.pp {
+    position: relative;
+    padding: 0 28px 0 0;
+}
+
+.pdot {
+    display: block;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    background: var(--bg);
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.pdot::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+}
+
+.px {
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.pn {
+    font-family: "Syne", sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
+}
+
+.pd {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+@include bp-md {
+    .pi {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .pi::before {
+        left: 9px;
+        right: auto;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        height: auto;
+    }
+
+    .pp {
+        padding: 0 0 0 48px;
+    }
+
+    .pdot {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+    }
+}

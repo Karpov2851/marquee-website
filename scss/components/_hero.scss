@@ -1,0 +1,215 @@
+@use "../abstracts" as *;
+
+// Hero (WebGL canvas, headline, stats)
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding-top: clamp(140px, 16vh, 200px);
+}
+
+#gl {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.ho {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(8, 8, 8, 0.1) 0%,
+        rgba(8, 8, 8, 0) 40%,
+        rgba(8, 8, 8, 0.65) 85%,
+        rgba(8, 8, 8, 1) 100%
+    );
+    pointer-events: none;
+}
+
+.hc {
+    position: relative;
+    z-index: 2;
+    max-width: 1340px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 $gutter
+        96px;
+}
+
+.hl {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.8s 0.1s,
+        transform 0.8s 0.1s;
+}
+
+.hl::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+.hl.in {
+    opacity: 1;
+    transform: none;
+}
+
+h1.hh {
+    font-family: "Syne", sans-serif;
+    font-size: clamp(72px, 11.5vw, 160px);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -4px;
+    margin-bottom: 36px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.9s 0.2s,
+        transform 0.9s 0.2s;
+}
+
+h1.hh.long {
+    font-size: clamp(40px, 5vw, 80px);
+    letter-spacing: -2px;
+}
+
+h1.hh.in {
+    opacity: 1;
+    transform: none;
+}
+
+.ws {
+    font-style: italic;
+    background: linear-gradient(
+        90deg,
+        #b4b4b4,
+        #f2f2f2 45%,
+        #c4c4c4
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-right: 0.08em;
+}
+
+.hs {
+    font-size: clamp(19px, 1.7vw, 24px);
+    color: var(--muted);
+    max-width: 640px;
+    margin-bottom: 48px;
+    line-height: 1.65;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.8s 0.4s,
+        transform 0.8s 0.4s;
+}
+
+.hs.in {
+    opacity: 1;
+    transform: none;
+}
+
+.ha {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.8s 0.55s,
+        transform 0.8s 0.55s;
+}
+
+.ha.in {
+    opacity: 1;
+    transform: none;
+}
+
+.hst {
+    position: absolute;
+    right: max(24px, calc((100vw - 1340px) / 2 + 24px));
+    bottom: 96px;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    text-align: left;
+    opacity: 0;
+    transform: translateX(16px);
+    transition:
+        opacity 1s 0.7s,
+        transform 1s 0.7s;
+}
+
+.hst.in {
+    opacity: 1;
+    transform: none;
+}
+
+.sn {
+    font-family: "Syne", sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.sl {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+@include bp-sm {
+    .hst {
+        display: none;
+    }
+
+    .hero {
+        align-items: flex-start;
+        padding-top: 0;
+    }
+
+    .hc {
+        padding-top: max(88px, 14vh);
+        padding-bottom: 64px;
+    }
+
+    h1.hh {
+        font-size: 11.2vw;
+        letter-spacing: -1px;
+        margin-bottom: 24px;
+    }
+
+    h1.hh.long {
+        font-size: 8.4vw;
+    }
+
+    .hs {
+        font-size: 17px;
+        margin-bottom: 36px;
+    }
+
+    .ha {
+        gap: 10px;
+    }
+}
